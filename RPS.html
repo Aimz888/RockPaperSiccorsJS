@@ -1,0 +1,35 @@
+<Script>
+    var RPS = [
+  "Rock",
+  "Paper",
+  "Scissor"
+];
+    function computerPlay(RPS) {
+        return RPS [Math.floor(Math.random()*RPS.length)];
+
+    }
+
+console.log (computerPlay(RPS));
+/* second task */
+
+var playerSelection = "Rock";
+var computerSelection = computerPlay(RPS);
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+        return "DRAW - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection
+    } else if ((playerSelection === "Rock" && computerSelection === "Scissor") || 
+    (playerSelection === "Paper" && computerSelection === "Rock") || 
+    (playerSelection === "Scissor" && computerSelection === "Paper"))  {
+        return "Player wins - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection
+    }else if ((computerSelection === "Rock" && playerSelection === "Scissor") || 
+    (computerSelection === "Paper" && playerSelection === "Rock") || 
+    (computerSelection === "Scissor" && playerSelection === "Paper")) {
+        return "Computer wins - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection}
+    else {return "UNKNOWN - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection} 
+};
+
+
+
+console.log (playRound(playerSelection, computerSelection));
+</Script>
