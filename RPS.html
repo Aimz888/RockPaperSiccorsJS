@@ -1,54 +1,59 @@
 <Script>
     var RPS = [
-  "Rock",
-  "Paper",
-  "Scissor"
+  "ROCK",
+  "PAPER",
+  "SCISSOR"
 ];
     function computerPlay(RPS) {
         return RPS [Math.floor(Math.random()*RPS.length)]; /* this will randomly select the RPS variable values i.e. Rock Paper Scissors*/
-
-    }
-
-console.log (computerPlay(RPS));
+        }
 /* PROJECT: ROCK PAPER SCISSORS - Task 4 5 6*/
-
-
-var playerSelection = prompt("Choose one of the following: Rock, Paper or Scissor").toUpperCase(); /*Added toUpperCase to ensure case INSENSITIVITY i.e. user can enter rock or roCk and it will conver to uppercase so that it correctly matches in the IF statements below */
-var computerSelection = computerPlay(RPS);
 
 /* Store score and start at 0 */
 let computerScore = 0
 let playerScore = 0
 let drawScore = 0
 
-function game() {}
-/* Keep score of each round */
-/* Add score until 5 rounds*/
-/* reset score after 5 rounds */
-
-
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === computerSelection.toUpperCase()) {
+function playRound(playerSeltecion, computerSelection) {
+    if (playerSelection === computerSelection) {
         drawScore ++; /* increments by 1 from the current variable value i.e. currently 0 */
         return "DRAW - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection;
-    } else if ((playerSelection === "ROCK" && computerSelection === "Scissor") || 
-    (playerSelection === "PAPER" && computerSelection === "Rock") || 
-    (playerSelection === "SCISSOR" && computerSelection === "Paper"))  {
+    } else if ((playerSelection === "ROCK" && computerSelection === "SCISSOR") || 
+    (playerSelection === "PAPER" && computerSelection === "ROCK") || 
+    (playerSelection === "SCISSOR" && computerSelection === "PAPER"))  {
         playerScore ++;
         return "Player wins - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection
-    }else if ((computerSelection === "Rock" && playerSelection === "SCISSOR") || 
-    (computerSelection === "Paper" && playerSelection === "ROCK") || 
-    (computerSelection === "Scissor" && playerSelection === "PAPER")) {
+    }else if ((computerSelection === "ROCK" && playerSelection === "SCISSOR") || 
+    (computerSelection === "PAPER" && playerSelection === "ROCK") || 
+    (computerSelection === "SCISSOR" && playerSelection === "PAPER")) {
         computerScore ++;
         return "Computer wins - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection}
     else {return "UNKNOWN - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection} 
 
-};
-console.log (playRound(playerSelection, computerSelection));
+}
+
+
+function game() { /* Keep score of each round */ /* Add score until 5 rounds* /* reset score after 5 rounds */
+    console.log (playRound(playerSelection, computerSelection));
+    console.log (playRound(playerSelection, computerSelection));
+}
+
+
+var playerSelection = prompt("Choose one of the following: Rock, Paper or Scissor").toUpperCase(); /*Added toUpperCase to ensure case INSENSITIVITY i.e. user can enter rock or roCk and it will conver to uppercase so that it correctly matches in the IF statements below */
+var computerSelection = computerPlay(RPS);
+
+
+console.log (playRound(playerSelection, computerSelection)); 
 console.log ("payer score " + playerScore);
 console.log ("draw score " + drawScore);
 console.log ("computer score " + computerScore);
 
-
+/* my attempt at declaring the actual winner after 5 wins
+function trackWinner () {
+if (playerScore == 5 || computerScore == 5) 
+{return "someone won"} 
+    else {return "keep playing"}
+}; 
+*/
 
 </Script>
