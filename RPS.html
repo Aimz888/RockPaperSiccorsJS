@@ -1,52 +1,78 @@
-<Script>
-    var RPS = [
-  "ROCK",
-  "PAPER",
-  "SCISSOR"
-];
-    function computerPlay(RPS) {
-        return RPS [Math.floor(Math.random()*RPS.length)]; /* this will randomly select the RPS variable values i.e. Rock Paper Scissors*/
-        }
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+<body>
+<script>
+var RPS = ['ROCK', 'PAPER', 'SCISSOR'];
+function computerPlay(RPS) {
+return RPS [
+    Math.floor(Math.random() * RPS.length)
+        ]; /* this will randomly select the RPS variable values i.e. Rock Paper Scissors*/
+      }
 /* PROJECT: ROCK PAPER SCISSORS - Task 4 5 6*/
-
 /* Store score and start at 0 */
-let computerScore = 0
-let playerScore = 0
-let drawScore = 0
+let computerScore = 0;
+let playerScore = 0;
+let drawScore = 0;
 
-function playRound(playerSeltecion, computerSelection) {
+function playRound() { /* add here why I removed the paremeters playerSelection & computerSelection*/
+    var playerSelection = prompt( /* add here why 2 variables declared within the playRound() function */
+    'Choose one of the following: Rock, Paper or Scissor'
+            ).toUpperCase(); /*Added toUpperCase to ensure case INSENSITIVITY i.e. user can enter rock or roCk and it will convert to uppercase so that it correctly matches in the IF statements below */
+    var computerSelection = computerPlay(RPS);
     if (playerSelection === computerSelection) {
-        drawScore ++; /* increments by 1 from the current variable value i.e. currently 0 */
-        return "DRAW - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection;
-    } else if ((playerSelection === "ROCK" && computerSelection === "SCISSOR") || 
-    (playerSelection === "PAPER" && computerSelection === "ROCK") || 
-    (playerSelection === "SCISSOR" && computerSelection === "PAPER"))  {
-        playerScore ++;
-        return "Player wins - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection
-    }else if ((computerSelection === "ROCK" && playerSelection === "SCISSOR") || 
-    (computerSelection === "PAPER" && playerSelection === "ROCK") || 
-    (computerSelection === "SCISSOR" && playerSelection === "PAPER")) {
-        computerScore ++;
-        return "Computer wins - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection}
-    else {return "UNKNOWN - player chose: " + playerSelection + " &" + " computer chose: " + computerSelection} 
+    drawScore++; /* increments by 1 from the current variable value i.e. currently 0 */
+    return ('DRAW - player chose: ' + playerSelection + ' &' + ' computer chose: ' + computerSelection);
+            } else if (
+              (playerSelection === 'ROCK' && computerSelection === 'SCISSOR') ||
+              (playerSelection === 'PAPER' && computerSelection === 'ROCK') ||
+              (playerSelection === 'SCISSOR' && computerSelection === 'PAPER')
+            ) {
+    playerScore++;
+    return ('Player wins - player chose: ' + playerSelection +' &' + ' computer chose: ' + computerSelection);
+            } else if (
+              (computerSelection === 'ROCK' && playerSelection === 'SCISSOR') ||
+              (computerSelection === 'PAPER' && playerSelection === 'ROCK') ||
+              (computerSelection === 'SCISSOR' && playerSelection === 'PAPER')
+            ) {
+    computerScore++;
+    return ('Computer wins - player chose: ' + playerSelection + ' &' + ' computer chose: ' + computerSelection);
+            } else {
+    return ('UNKNOWN - player chose: ' + playerSelection + ' &' + ' computer chose: ' + computerSelection);
+            }
+          }
 
-}
-
-
-function game() { /* Keep score of each round */ /* Add score until 5 rounds* /* reset score after 5 rounds */
+function gameOne() { /* Keep score of each round */ /* Add score until 5 rounds* /* reset score after 5 rounds */
     console.log (playRound(playerSelection, computerSelection));
     console.log (playRound(playerSelection, computerSelection));
 }
 
+function game() {
+    /* Keep score of each round. Add score until 5 rounds. called playRound() function 5 times and used console.log to show the relevant text */
+    console.log(playRound());
+    showScore();
+    console.log(playRound());
+    showScore();
+    console.log(playRound());
+    showScore();
+    console.log(playRound());
+    showScore();
+    console.log(playRound());
+    showScore();
+          }
+    const showScore = () => {
+    console.log('player score ' + playerScore);
+    console.log('draw score ' + drawScore);
+    console.log('computer score ' + computerScore);
+          }; /* showScore() - console log used to show the scores after each round*/
 
-var playerSelection = prompt("Choose one of the following: Rock, Paper or Scissor").toUpperCase(); /*Added toUpperCase to ensure case INSENSITIVITY i.e. user can enter rock or roCk and it will conver to uppercase so that it correctly matches in the IF statements below */
-var computerSelection = computerPlay(RPS);
+game(); /* calling game() function for it to actually run. Previous steps are only declaring the game() function. THis will now execute the function*/
 
-
-console.log (playRound(playerSelection, computerSelection)); 
-console.log ("payer score " + playerScore);
-console.log ("draw score " + drawScore);
-console.log ("computer score " + computerScore);
 
 /* my attempt at declaring the actual winner after 5 wins
 function trackWinner () {
@@ -56,4 +82,8 @@ if (playerScore == 5 || computerScore == 5)
 }; 
 */
 
-</Script>
+</Script> 
+</body>
+</html>
+
+    
