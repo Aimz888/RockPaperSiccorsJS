@@ -22,8 +22,7 @@ let drawScore = 0;
 
 function playRound() { /* add here why I removed the paremeters playerSelection & computerSelection*/
     var playerSelection = prompt( /* add here why 2 variables declared within the playRound() function */
-    'Choose one of the following: Rock, Paper or Scissor'
-            ).toUpperCase(); /*Added toUpperCase to ensure case INSENSITIVITY i.e. user can enter rock or roCk and it will convert to uppercase so that it correctly matches in the IF statements below */
+    'Choose one of the following: Rock, Paper or Scissor').toUpperCase(); /*Added toUpperCase to ensure case INSENSITIVITY i.e. user can enter rock or roCk and it will convert to uppercase so that it correctly matches in the IF statements below */
     var computerSelection = computerPlay(RPS);
     if (playerSelection === computerSelection) {
     drawScore++; /* increments by 1 from the current variable value i.e. currently 0 */
@@ -54,7 +53,7 @@ function gameOne() { /* Keep score of each round */ /* Add score until 5 rounds*
 
 function game() {
     /* Keep score of each round. Add score until 5 rounds. called playRound() function 5 times and used console.log to show the relevant text */
-    console.log(playRound());
+    /* console.log(playRound());
     showScore();
     console.log(playRound());
     showScore();
@@ -63,8 +62,11 @@ function game() {
     console.log(playRound());
     showScore();
     console.log(playRound());
-    showScore();
-          }
+    showScore(); */
+    do {console.log(playRound());
+        showScore()}
+        while(playerScore < 5 && computerScore < 5)
+          } /* do while loop used to run through the rounds until either score reaches 5. IMPORTANT: Need to understand why || didn't work but && did? */
     const showScore = () => {
     console.log('player score ' + playerScore);
     console.log('draw score ' + drawScore);
