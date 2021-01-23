@@ -66,7 +66,8 @@ function game() {
     do {console.log(playRound());
         showScore()}
         while(playerScore < 5 && computerScore < 5)
-          } /* do while loop used to run through the rounds until either score reaches 5. IMPORTANT: Need to understand why || didn't work but && did? */
+          } /* do while loop used to run through the rounds until either score reaches 5. IMPORTANT: Need to understand why || didn't work but && did? 
+          ANSWER: && is TRUE because both scores are less than 5, so only become FALSE when atleast one becomes 5 wherease || is TRUE until BOTH scores are atleast 5 or above */
     const showScore = () => {
     console.log('player score ' + playerScore);
     console.log('draw score ' + drawScore);
