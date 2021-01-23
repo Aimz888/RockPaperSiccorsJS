@@ -68,7 +68,7 @@ function game() {
         while(playerScore < 5 && computerScore < 5)
           } /* do while loop used to run through the rounds until either score reaches 5. IMPORTANT: Need to understand why || didn't work but && did? 
           ANSWER: && is TRUE because both scores are less than 5, so only become FALSE when atleast one becomes 5 wherease || is TRUE until BOTH scores are atleast 5 or above */
-    const showScore = () => {
+    function showScore() {
     console.log('player score ' + playerScore);
     console.log('draw score ' + drawScore);
     console.log('computer score ' + computerScore);
@@ -76,14 +76,6 @@ function game() {
 
 game(); /* calling game() function for it to actually run. Previous steps are only declaring the game() function. THis will now execute the function*/
 
-
-/* my attempt at declaring the actual winner after 5 wins
-function trackWinner () {
-if (playerScore == 5 || computerScore == 5) 
-{return "someone won"} 
-    else {return "keep playing"}
-}; 
-*/
 
 </Script> 
 </body>
